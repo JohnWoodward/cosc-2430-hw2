@@ -1,31 +1,84 @@
 package company;
 
-// A basic doubly linked list implementation. ∗/
-public class DoubleLinkedList<E> {
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 
-    //    // node of linked list
+// A basic doubly linked list implementation. ∗/
+public class DoubleLinkedList<Interger> {
+    private int columnCount;
+    private int rowCount;
+
+
+
+//        // node of linked list
 //    static class Node {
 //        int data;
 //        Node right;
 //        Node down;
+//        int rowCount;
+//        int columnCount;
 //    };
 //
 //    // returns head pointer of linked list
 //    // constructed from 2D matrix
-//    static Node construct(FileInput.SingleLinkedList inputObject, int m, int n) {
+//    static Node construct(String inputFile) {
+//        BufferedReader br = null;
+//        FileReader fr = null;
+//        int rowCount = 0;
+//        int columnCount = 0;
+//        int tempColumnCount = 0;
+//        String currentLine;
+//        String[] currentRowArray;
+//        Node temp = new Node();
+//
+//        try {
+//
+//            fr = new FileReader(inputFile);
+//            br = new BufferedReader(fr);
+//
+//            while ((currentLine = br.readLine()) != null) {
+//                rowCount++;
+//
+//
+//                currentRowArray = currentLine.split(" ");
+//
+//
+//                for (String currentElement : currentRowArray) {
+//                    if (rowCount == 0) {
+//
+//                        for (int i = 0; i < columnCount; i++) {
+//                            temp = temp.right;
+//                        }
+//                        temp.data = Integer.parseInt(currentElement);
+//                    }
+//
+//                    if (rowCount == 1)
+//                        columnCount++;
+//
+//
+//                    else {
+//                        for (int i = 0; i < rowCount; i++) {
+//                            temp = temp.down;
+//                        }
+//                        if (tempColumnCount == 0) {
+//                            temp.data = Integer.parseInt(currentElement);
+//                        } else {
+//                            for (int i = 0; i < tempColumnCount; i++) {
+//                                temp = temp.right;
+//                            }
+//                            temp.data = Integer.parseInt(currentElement);
+//                        }
+//                    }
+//                }
+//            }
+//            fr.close();
+//            br.close();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
 //
 //        // return if i or j is out of bounds
-////        if (i > n - 1 || j > m - 1)
-////            return null;
-//
-//
-//        // create a new node for current i and j
-//        // and recursively allocate its down and
-//        // right pointers
-//        Node temp = new Node();
-//        temp.data = inputObject.first() ;
-//        temp.right = construct(arr, i, j + 1, m, n);
-//        temp.down = construct(arr, i + 1, j, m, n);
 //        return temp;
 //    }
 //
@@ -52,82 +105,119 @@ public class DoubleLinkedList<E> {
 //            Dp = Dp.down;
 //        }
 //    }
-//
-//    // driver program
-//    public static void main(String args[]) {
-//        // 2D matrix
-//        int arr[][] = { { 1, 2, 3 },
-//                { 4, 5, 6 },
-//                { 7, 8, 9 } };
-//
-//        int m = 3, n = 3;
-//        Node head = construct(arr, 0, 0, m, n);
-//        display(head);
-//    }
-//
-//}
-//---------------- nested Node class ----------------
-    private static class Node<E> {
-        private E element;
-        private Node<E> down;
-        private Node<E> right;
 
-        public Node(E e, Node<E> p, Node<E> n) {
+    // driver program
+
+
+    //---------------- nested Node class ----------------
+    private static class Node<Interger> {
+        private Interger element;
+        private Node<Interger> down;
+        private Node<Interger> right;
+
+
+        public Node(Interger e, Node<Interger> d, Node<Interger> n) {
             element = e;
-            down = p;
+            down = d;
             right = n;
         }
 
-        public E getElement() {
+        public Interger getElement() {
             return element;
         }
 
-        public Node<E> getPrev() {
+        public void setElement(Interger element) {
+            this.element = element;
+        }
+
+        public Node<Interger> getDown() {
             return down;
         }
 
-        public Node<E> getNext() {
+        public Node<Interger> getRight() {
             return right;
         }
 
-        public void setPrev(Node<E> p) {
-            down = p;
+
+        public void setDown(Node<Interger> d) {
+            down = d;
         }
 
-        public void setNext(Node<E> n) {
+        public void setRight(Node<Interger> n) {
             right = n;
         }
     } //----------- end of nested Node class -----------
 
     // instance variables of the DoublyLinkedList
-    private Node<E> header; // header sentinel
-    private Node<E> trailer; // trailer sentinel
-    private int size = 0; // number of elements in the list
+    private Node<Interger> header; // header sentinel
+    private Node<Interger> row;
+    private Node<Interger> column; // trailer sentinel
+    private int size = 0;
+    private Node<Interger> currentElement;
+    private Node<Interger> oneRowUp;// number of elements in the list
 
     // // Constructs a new empty list. ∗/
     public DoubleLinkedList() {
         header = new Node<>(null, null, null); // create header
-        trailer = new Node<>(null, header, null); // trailer is preceded by header
+        header.setDown(rowNode());
+        header.setRight(columnNode());
+        currentElement = header;
+        // trailer is preceded by header
 
-        header.setNext(trailer); // header is followed by trailer
+        // header is followed by trailer
     }
 
-    static Node construct(int arr[][], int i, int j,
-                          int m, int n) {
-
-        // return if i or j is out of bounds
-        if (i > n - 1 || j > m - 1)
-            return null;
-
-        // create a new node for current i and j
-        // and recursively allocate its down and
-        // right pointers
-        Node temp = new Node();
-        temp.data = arr[i][j];
-        temp.right = construct(arr, i, j + 1, m, n);
-        temp.down = construct(arr, i + 1, j, m, n);
-        return temp;
+    public DoubleLinkedList(Interger firstElement) {
+        header = new Node<>(firstElement, null, null);
+        header.setRight(columnNode());
+        header.setDown(rowNode());
+        currentElement = header;
     }
+
+    public Node getHead() {
+
+        return header;
+    }
+
+
+
+
+    public void setOneRowUp(Node nodeBelow, int currentRow, int currentColumn) {
+        oneRowUp = header;
+        for (int i = 0; i < currentRow-1; i++) {
+            oneRowUp = header.getDown();
+        }
+        for (int i = 0; i < currentColumn-1; i++) {
+            oneRowUp = oneRowUp.getRight();
+        }
+        oneRowUp.setDown(nodeBelow);
+
+    }
+
+    public Node getOneRowUp() {
+        return oneRowUp;
+    }
+
+    public Node rowNode() {
+        row = new Node<>(null, null, null);
+        return row;
+    }
+
+    public Node rowNode(Interger element) {
+        row = new Node<>(element, null, null);
+        return row;
+    }
+
+    public Node columnNode() {
+        column = new Node<>(null, null, null);
+        return column;
+    }
+
+    public Node columnNode(Node down, Node right) {
+        column = new Node<>(null, down, right);
+        return column;
+    }
+
 
     // Returns the number of elements in the linked list. ∗/
     public int size() {
@@ -140,57 +230,163 @@ public class DoubleLinkedList<E> {
     }
 
     // Returns (but does not remove) the first element of the list. ∗/
-    public E first() {
+    public Interger first() {
         if (isEmpty()) return null;
-        return header.getNext().getElement(); // first element is beyond header
+        return header.getElement(); // first element is beyond header
     }
 
     // Returns (but does not remove) the last element of the list. ∗/
-    public E last() {
-        if (isEmpty()) return null;
-        return trailer.getPrev().getElement(); // last element is before trailer
-    }
+
 
     // Adds element e to the front of the list. ∗/
-    public void addFirst(E e) {
-        addBetween(e, header, header.getNext()); // place just after the header
+    public void addColumn(Interger e, int row, int columnCount) {
+
+
+      +  currentElement = currentElement.getRight();
+        currentElement.setElement(e);
+        currentElement.setRight(columnNode());
+        setOneRowUp(currentElement, row, columnCount);
+         // place just after the header
     }
 
-    // Adds element e to the end of the list. ∗/
-    public void addLast(E e) {
-        addBetween(e, trailer.getPrev(), trailer); // place just before the trailer
+    public void addRow(Interger e, int row, int columnCount) {
+        currentElement = header;
+        for (int i = 0; i < row-1
+                ; i++) {
+            currentElement = currentElement.getDown();
+            if (currentElement.getElement() == null){
+                currentElement.setDown(rowNode());
+                currentElement.setRight(columnNode());
+            }
+        }
+
+
+        currentElement.setElement(e);
+
+
+        setOneRowUp(currentElement, row, columnCount);
+
     }
 
-    // Removes and returns the first element of the list. ∗/
-    public E removeFirst() {
-        if (isEmpty()) return null; // nothing to remove
-        return remove(header.getNext()); // first element is beyond header
+    public void displayMatrix (Node header) {
+        currentElement = header;
+        int tempRowCount = 0;
+
+        while (currentElement.getElement() != null) {
+            System.out.print(currentElement.getElement()+ " ");
+            currentElement = currentElement.getRight();
+        }
+
+//        while (currentElement.getDown() != null & currentElement.getRight()!=null) {
+//            while (currentElement.getElement() != null) {
+//                System.out.print(currentElement.getElement());
+//                currentElement = currentElement.getRight();
+//            }
+//            tempRowCount++;
+//            currentElement = header
+        }
+
+
+//        for (int i = 0; i < rowCount; i++) {
+//            currentElement = currentElement.getDown();
+//
+//            for (int j = 0; j < rowCount; j++) {
+//                System.out.print(currentElement.getElement());
+//                currentElement = currentElement.getRight();
+//            }
+////            currentElement = header;
+//        }
+
+
+
+
+    public int getColumnCount() {
+        return columnCount;
     }
 
-    // Removes and returns the last element of the list. ∗/
-    public E removeLast() {
-        if (isEmpty()) return null; // nothing to remove
-        return remove(trailer.getPrev()); // last element is before trailer
+    public int getRowCount() {
+        return rowCount;
     }
 
-    // private update methods
-    // Adds element e to the linked list in between the given nodes. ∗/
-    private void addBetween(E e, Node<E> predecessor, Node<E> successor) {
-        // create and link a new node
-        Node<E> newest = new Node<>(e, predecessor, successor);
-        predecessor.setNext(newest);
-        successor.setPrev(newest);
-        size++;
+
+    public  DoubleLinkedList buildMatrix(String inputFile) {
+
+
+
+
+
+
+        rowCount = 0;
+        columnCount = 0;
+        int tempColumnCount;
+
+
+        DoubleLinkedList currentMatrix;
+
+
+
+            BufferedReader br = null;
+            FileReader fr = null;
+            rowCount = 0;
+            columnCount = 0;
+            String currentLine;
+            String[] currentRowArray;
+            currentMatrix = new DoubleLinkedList();
+            Node rowAbove;
+
+
+            try {
+
+                fr = new FileReader(inputFile);
+                br = new BufferedReader(fr);
+
+                while ((currentLine = br.readLine()) != null) {
+                    rowCount++;
+                    tempColumnCount = 0;
+
+
+                    currentRowArray = currentLine.split(" ");
+
+
+                    for (String currentInteger : currentRowArray) {
+                        if (rowCount == 1) {
+                            if ((columnCount == 0 && rowCount == 1)) {
+                                currentMatrix = new DoubleLinkedList(Integer.parseInt(currentInteger));
+                                columnCount++;
+                            }
+                            else  {
+                                currentMatrix.addColumn(currentInteger,rowCount, columnCount);
+                                columnCount++;
+                            }
+                        }
+
+
+                        if(rowCount > 1) {
+                            if (tempColumnCount <1) {
+                                currentMatrix.addRow(currentInteger, rowCount, columnCount);
+                                tempColumnCount ++;
+
+
+                            }
+                            else {
+                                currentMatrix.addColumn(currentInteger,rowCount, columnCount);
+                            }
+                        }
+
+
+
+                    }
+                }
+                fr.close();
+                br.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+
+        return currentMatrix;
+
+    }
     }
 
-    // Removes the given node from the list and returns its element. ∗/
-    private E remove(Node<E> node) {
-        Node<E> predecessor = node.getPrev();
-        Node<E> successor = node.getNext();
-        predecessor.setNext(successor);
-        successor.setPrev(predecessor);
-        size--;
-        return node.getElement();
-    }
-}
 //----------- end of DoublyLinkedList class -----------
