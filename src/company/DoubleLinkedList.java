@@ -4,109 +4,9 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
-// A basic doubly linked list implementation. ∗/
 public class DoubleLinkedList<Interger> {
     private int columnCount;
     private int rowCount;
-
-
-//        // node of linked list
-//    static class Node {
-//        int data;
-//        Node right;
-//        Node down;
-//        int rowCount;
-//        int columnCount;
-//    };
-//
-//    // returns head pointer of linked list
-//    // constructed from 2D matrix
-//    static Node construct(String inputFile) {
-//        BufferedReader br = null;
-//        FileReader fr = null;
-//        int rowCount = 0;
-//        int columnCount = 0;
-//        int tempColumnCount = 0;
-//        String currentLine;
-//        String[] currentRowArray;
-//        Node temp = new Node();
-//
-//        try {
-//
-//            fr = new FileReader(inputFile);
-//            br = new BufferedReader(fr);
-//
-//            while ((currentLine = br.readLine()) != null) {
-//                rowCount++;
-//
-//
-//                currentRowArray = currentLine.split(" ");
-//
-//
-//                for (String currentElement : currentRowArray) {
-//                    if (rowCount == 0) {
-//
-//                        for (int i = 0; i < columnCount; i++) {
-//                            temp = temp.right;
-//                        }
-//                        temp.data = Integer.parseInt(currentElement);
-//                    }
-//
-//                    if (rowCount == 1)
-//                        columnCount++;
-//
-//
-//                    else {
-//                        for (int i = 0; i < rowCount; i++) {
-//                            temp = temp.down;
-//                        }
-//                        if (tempColumnCount == 0) {
-//                            temp.data = Integer.parseInt(currentElement);
-//                        } else {
-//                            for (int i = 0; i < tempColumnCount; i++) {
-//                                temp = temp.right;
-//                            }
-//                            temp.data = Integer.parseInt(currentElement);
-//                        }
-//                    }
-//                }
-//            }
-//            fr.close();
-//            br.close();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//
-//        // return if i or j is out of bounds
-//        return temp;
-//    }
-//
-//    // utility function for displaying
-//    // linked list data
-//    static void display(Node head) {
-//
-//        // pointer to move right
-//        Node Rp;
-//
-//        // pointer to move down
-//        Node Dp = head;
-//
-//        // loop till node->down is not NULL
-//        while (Dp != null) {
-//            Rp = Dp;
-//
-//            // loop till node->right is not NULL
-//            while (Rp != null) {
-//                System.out.print(Rp.data + " ");
-//                Rp = Rp.right;
-//            }
-//            System.out.println();
-//            Dp = Dp.down;
-//        }
-//    }
-
-    // driver program
-
 
     //---------------- nested Node class ----------------
     private static class Node<Interger> {
@@ -169,9 +69,6 @@ public class DoubleLinkedList<Interger> {
         header.setDown(rowNode());
         header.setRight(columnNode());
         currentElement = header;
-        // trailer is preceded by header
-
-        // header is followed by trailer
     }
 
     public DoubleLinkedList(Interger firstElement) {
@@ -238,8 +135,7 @@ public class DoubleLinkedList<Interger> {
         currentElement = currentElement.getRight();
         currentElement.setElement(e);
         currentElement.setRight(columnNode());
-
-        // place just after the header
+        currentElement.setDown(rowNode());
     }
 
     public void addRow(Interger e, int row) {
@@ -270,15 +166,16 @@ public class DoubleLinkedList<Interger> {
             System.out.print("\n");
             currentElement = inputMatrix.getHead();
             elementAbove = inputMatrix.getHead();
+
             for (int i = 0; i < tempRowCount; i++) {
                 currentElement = currentElement.getDown();
             }
+
             for (int i = 0; i < tempRowCount - 1; i++) {
                 elementAbove = elementAbove.getDown();
             }
         }
     }
-
 
     public void displayMatrix(Node header) {
         currentElement = header;
@@ -288,8 +185,8 @@ public class DoubleLinkedList<Interger> {
             while (currentElement.getElement() != null) {
                 System.out.print(currentElement.getElement() + " ");
                 currentElement = currentElement.getRight();
-
             }
+
             tempRowCount++;
             System.out.print("\n");
             currentElement = header;
@@ -297,28 +194,7 @@ public class DoubleLinkedList<Interger> {
                 currentElement = currentElement.getDown();
             }
         }
-
-
-//        while (currentElement.getDown() != null & currentElement.getRight()!=null) {
-//            while (currentElement.getElement() != null) {
-//                System.out.print(currentElement.getElement());
-//                currentElement = currentElement.getRight();
-//            }
-//            tempRowCount++;
-//            currentElement = header
     }
-
-
-//        for (int i = 0; i < rowCount; i++) {
-//            currentElement = currentElement.getDown();
-//
-//            for (int j = 0; j < rowCount; j++) {
-//                System.out.print(currentElement.getElement());
-//                currentElement = currentElement.getRight();
-//            }
-////            currentElement = header;
-//        }
-
 
     public int getColumnCount() {
         return columnCount;
@@ -328,18 +204,12 @@ public class DoubleLinkedList<Interger> {
         return rowCount;
     }
 
-
     public DoubleLinkedList buildMatrix(String inputFile) {
-
 
         rowCount = 0;
         columnCount = 0;
         int tempColumnCount;
-
-
         DoubleLinkedList currentMatrix;
-
-
         BufferedReader br = null;
         FileReader fr = null;
         rowCount = 0;
@@ -347,8 +217,6 @@ public class DoubleLinkedList<Interger> {
         String currentLine;
         String[] currentRowArray;
         currentMatrix = new DoubleLinkedList();
-        Node rowAbove;
-
 
         try {
 
@@ -359,9 +227,7 @@ public class DoubleLinkedList<Interger> {
                 rowCount++;
                 tempColumnCount = 0;
 
-
                 currentRowArray = currentLine.split(" ");
-
 
                 for (String currentInteger : currentRowArray) {
                     if (rowCount == 1) {
@@ -374,20 +240,16 @@ public class DoubleLinkedList<Interger> {
                         }
                     }
 
-
                     if (rowCount > 1) {
                         if (tempColumnCount < 1) {
                             currentMatrix.addRow(currentInteger, rowCount);
                             tempColumnCount++;
-                            // TODO move down instead of create a new row
-
 
                         } else {
                             currentMatrix.addColumn(currentInteger);
                         }
                     }
                 }
-
             }
             fr.close();
             br.close();
@@ -397,9 +259,7 @@ public class DoubleLinkedList<Interger> {
 
         downPointers(currentMatrix);
 
-
         return currentMatrix;
-
     }
 
     public void addMatrix(DoubleLinkedList matrixOne, DoubleLinkedList matrixTwo) {
@@ -415,6 +275,7 @@ public class DoubleLinkedList<Interger> {
         } else {
 
             while (matrixOneElement.getElement() != null) {
+
                 while (matrixOneElement.getElement() != null) {
                     sum = 0;
                     matrixOneInt = matrixOneElement.getElementInt();
@@ -424,8 +285,8 @@ public class DoubleLinkedList<Interger> {
                     System.out.print(" ");
                     matrixOneElement = matrixOneElement.getRight();
                     matrixTwoElement = matrixTwoElement.getRight();
-
                 }
+
                 tempRowCount++;
                 System.out.print("\n");
                 matrixOneElement = matrixOne.getHead();
@@ -435,11 +296,7 @@ public class DoubleLinkedList<Interger> {
                     matrixTwoElement = matrixTwoElement.getDown();
                 }
             }
-
-
         }
-
-
     }
 
     public void subtractMatrix(DoubleLinkedList matrixOne, DoubleLinkedList matrixTwo) {
@@ -464,22 +321,19 @@ public class DoubleLinkedList<Interger> {
                     System.out.print(" ");
                     matrixOneElement = matrixOneElement.getRight();
                     matrixTwoElement = matrixTwoElement.getRight();
-
                 }
+
                 tempRowCount++;
                 System.out.print("\n");
                 matrixOneElement = matrixOne.getHead();
                 matrixTwoElement = matrixTwo.getHead();
+
                 for (int i = 0; i < tempRowCount; i++) {
                     matrixOneElement = matrixOneElement.getDown();
                     matrixTwoElement = matrixTwoElement.getDown();
                 }
             }
-
-
         }
-
-
     }
 
     public void multiplyMatrix(DoubleLinkedList matrixOne, DoubleLinkedList matrixTwo, int m1, int n2) {
@@ -499,8 +353,6 @@ public class DoubleLinkedList<Interger> {
             matrixTwoElement = matrixTwo.getHead();
             tempColumn = 0;
 
-
-
             while (matrixTwoElement.getElement() != null) {
                 matrixOneElement = matrixOneRow;
 
@@ -509,28 +361,50 @@ public class DoubleLinkedList<Interger> {
                     matrixOneElement = matrixOneElement.getRight();
                     matrixTwoElement = matrixTwoElement.getDown();
                 }
+
                 System.out.printf("%.1f", product);
                 System.out.print(" ");
                 product = 0;
-
                 tempColumn++;
                 matrixTwoElement = matrixTwo.getHead();
+
                 for (int i = 0; i < tempColumn; i++) {
                     matrixTwoElement = matrixTwoElement.getRight();
                 }
-
             }
 
             tempRow++;
             matrixOneElement = matrixOne.getHead();
+
             for (int i = 0; i < tempRow; i++) {
                 matrixOneElement = matrixOneElement.getDown();
             }
 
             System.out.println();
+        }
+    }
 
+    public void transposeMatrix(DoubleLinkedList currentMatrix) {
 
+        Node currentPosition = currentMatrix.getHead();
+        int currentColumn = 0;
+        double currentElement;
+        while (currentPosition.getElement()!=null) {
 
+            while ( currentPosition.getElement()!=null) {
+                currentElement = currentPosition.getElementInt();
+                System.out.printf("%.1f", currentElement);
+                System.out.print(" ");
+
+                currentPosition = currentPosition.getDown();
+
+            }
+            currentColumn++;
+            System.out.println();
+            currentPosition = currentMatrix.getHead();
+            for (int i =0; i < currentColumn; i++) {
+                currentPosition = currentPosition.getRight();
+            }
 
         }
 
@@ -538,5 +412,3 @@ public class DoubleLinkedList<Interger> {
     }
 }
 
-
-//----------- end of DoublyLinkedList class -----------
