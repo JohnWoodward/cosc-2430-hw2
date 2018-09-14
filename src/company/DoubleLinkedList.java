@@ -242,7 +242,7 @@ public class DoubleLinkedList<Interger> {
     public void addColumn(Interger e, int row, int columnCount) {
 
 
-      +  currentElement = currentElement.getRight();
+        currentElement = currentElement.getRight();
         currentElement.setElement(e);
         currentElement.setRight(columnNode());
         setOneRowUp(currentElement, row, columnCount);
@@ -365,6 +365,7 @@ public class DoubleLinkedList<Interger> {
                             if (tempColumnCount <1) {
                                 currentMatrix.addRow(currentInteger, rowCount, columnCount);
                                 tempColumnCount ++;
+                                // TODO move down instead of create a new row
 
 
                             }
