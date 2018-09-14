@@ -1,12 +1,13 @@
 package company;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 public class DoubleLinkedList<Interger> {
     private int columnCount;
     private int rowCount;
+    private String stringStore;
 
     //---------------- nested Node class ----------------
     private static class Node<Interger> {
@@ -269,6 +270,7 @@ public class DoubleLinkedList<Interger> {
         double sum;
         double matrixOneInt;
         double matrixTwoInt;
+        stringStore = "";
 
         if (matrixOne.getRowCount() != matrixTwo.getRowCount() && matrixOne.getColumnCount() != matrixTwo.getColumnCount()) {
             System.out.println("Not able to add current matrices");
@@ -281,13 +283,16 @@ public class DoubleLinkedList<Interger> {
                     matrixOneInt = matrixOneElement.getElementInt();
                     matrixTwoInt = matrixTwoElement.getElementInt();
                     sum = matrixOneInt + matrixTwoInt;
-                    System.out.printf("%.1f", sum);
-                    System.out.print(" ");
+                    sum = BigDecimal.valueOf(sum).setScale(1, RoundingMode.HALF_UP).doubleValue();
+                    stringStore += (sum + " ");
+                    System.out.printf(sum + " ");
+
                     matrixOneElement = matrixOneElement.getRight();
                     matrixTwoElement = matrixTwoElement.getRight();
                 }
 
                 tempRowCount++;
+                stringStore += ("\n");
                 System.out.print("\n");
                 matrixOneElement = matrixOne.getHead();
                 matrixTwoElement = matrixTwo.getHead();
@@ -306,6 +311,7 @@ public class DoubleLinkedList<Interger> {
         double difference;
         double matrixOneInt;
         double matrixTwoInt;
+        stringStore = "";
 
         if (matrixOne.getRowCount() != matrixTwo.getRowCount() && matrixOne.getColumnCount() != matrixTwo.getColumnCount()) {
             System.out.println("Not able to add current matrices");
@@ -317,13 +323,15 @@ public class DoubleLinkedList<Interger> {
                     matrixOneInt = matrixOneElement.getElementInt();
                     matrixTwoInt = matrixTwoElement.getElementInt();
                     difference = matrixOneInt - matrixTwoInt;
-                    System.out.printf("%.1f", difference);
-                    System.out.print(" ");
+                    difference = BigDecimal.valueOf(difference).setScale(1, RoundingMode.HALF_UP).doubleValue();
+                    stringStore += (difference + " ");
+                    System.out.printf(difference + " ");
                     matrixOneElement = matrixOneElement.getRight();
                     matrixTwoElement = matrixTwoElement.getRight();
                 }
 
                 tempRowCount++;
+                stringStore += ("\n");
                 System.out.print("\n");
                 matrixOneElement = matrixOne.getHead();
                 matrixTwoElement = matrixTwo.getHead();
@@ -337,6 +345,7 @@ public class DoubleLinkedList<Interger> {
     }
 
     public void multiplyMatrix(DoubleLinkedList matrixOne, DoubleLinkedList matrixTwo, int m1, int n2) {
+        stringStore = "";
         if (m1 != n2) {
             System.out.print("Not able to multiply incompatible matrices");
         }
@@ -362,8 +371,9 @@ public class DoubleLinkedList<Interger> {
                     matrixTwoElement = matrixTwoElement.getDown();
                 }
 
-                System.out.printf("%.1f", product);
-                System.out.print(" ");
+                product = BigDecimal.valueOf(product).setScale(1, RoundingMode.HALF_UP).doubleValue();
+                stringStore += (product + " ");
+                System.out.printf(product + " ");
                 product = 0;
                 tempColumn++;
                 matrixTwoElement = matrixTwo.getHead();
@@ -380,6 +390,7 @@ public class DoubleLinkedList<Interger> {
                 matrixOneElement = matrixOneElement.getDown();
             }
 
+            stringStore+= ("\n");
             System.out.println();
         }
     }
@@ -389,26 +400,45 @@ public class DoubleLinkedList<Interger> {
         Node currentPosition = currentMatrix.getHead();
         int currentColumn = 0;
         double currentElement;
+        stringStore = "";
+
         while (currentPosition.getElement()!=null) {
 
             while ( currentPosition.getElement()!=null) {
                 currentElement = currentPosition.getElementInt();
-                System.out.printf("%.1f", currentElement);
-                System.out.print(" ");
 
+                currentElement = BigDecimal.valueOf(currentElement).setScale(1, RoundingMode.HALF_UP).doubleValue();
+                stringStore += (currentElement + " ");
+                System.out.printf(currentElement + " ");
                 currentPosition = currentPosition.getDown();
 
             }
             currentColumn++;
+            stringStore += ("\n");
             System.out.println();
             currentPosition = currentMatrix.getHead();
             for (int i =0; i < currentColumn; i++) {
                 currentPosition = currentPosition.getRight();
             }
-
         }
+    }
+
+    public void matrixDet(DoubleLinkedList currentMatrix, int m, int n) {
+
+    }
 
 
+
+    public void fileOutput(String outputFilePath) {
+        PrintWriter outputStream;
+        try {
+            outputStream = new PrintWriter(new FileOutputStream(outputFilePath));
+            outputStream.println(" " + stringStore);
+            outputStream.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("File " + outputFilePath + "cannot be found.");
+            System.exit(1);
+        }
     }
 }
 
