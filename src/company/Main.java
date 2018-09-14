@@ -85,16 +85,28 @@ public class Main {
 
     public static void main(String[] args) {
 
+        int questionOne;
+
         String inputOne = "sample_input_output/1_a.txt";
         String inputTwo = "sample_input_output/1_b.txt";
+        String testInput = "C:\\Users\\John Woodward\\IdeaProjects\\cosc-2430-hw2\\src\\testinput";
 
         DoubleLinkedList firstInput = new DoubleLinkedList();
+        DoubleLinkedList secondInput = new DoubleLinkedList();
         firstInput = firstInput.buildMatrix(inputOne);
+        secondInput = secondInput.buildMatrix(inputTwo);
 
 //        FileInput inputA = new FileInput(inputOne);
 //        FileInput inputB = new FileInput(inputTwo);
 
-        firstInput.displayMatrix(firstInput.getHead());
+//        firstInput.displayMatrix(firstInput.getHead());
+//        secondInput.displayMatrix(secondInput.getHead());
+        firstInput.addMatrix(firstInput, secondInput);
+        System.out.println();
+        firstInput.subtractMatrix(firstInput,secondInput);
+        System.out.println();
+        firstInput.multiplyMatrix(firstInput,secondInput,firstInput.getRowCount(),secondInput.getColumnCount());
+
 
 
     }
