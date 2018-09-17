@@ -3,11 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="a7284590-57d8-44c5-bc85-72b10c50baee" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/cosc-2430-hw2/company/DoubleLinkedList$Node.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/cosc-2430-hw2/company/DoubleLinkedList$Node.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/cosc-2430-hw2/company/DoubleLinkedList.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/cosc-2430-hw2/company/DoubleLinkedList.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/cosc-2430-hw2/company/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/cosc-2430-hw2/company/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/company/DoubleLinkedList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/DoubleLinkedList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/company/HW2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/HW2.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -18,41 +15,33 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="DoubleLinkedList.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/company/DoubleLinkedList.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
+            <state relative-caret-position="944">
+              <caret line="431" column="12" selection-start-line="431" selection-start-column="12" selection-end-line="431" selection-end-column="12" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#3450#3451#0" expanded="true" />
-                <element signature="e#3488#3489#0" expanded="true" />
-                <element signature="e#9086#9087#0" expanded="true" />
-                <element signature="e#9120#9121#0" expanded="true" />
-                <element signature="e#9152#9153#0" expanded="true" />
-                <element signature="e#9183#9184#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="HW2.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/company/HW2.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="774">
+              <caret line="59" lean-forward="true" selection-start-line="11" selection-start-column="7" selection-end-line="59" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/company/Main.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="136">
               <caret line="8" column="99" selection-start-line="8" selection-start-column="99" selection-end-line="8" selection-end-column="99" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HW2.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/company/HW2.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="808">
-              <caret line="64" lean-forward="true" selection-end-line="64" />
-              <folding>
-                <element signature="e#0#2329#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -96,26 +85,23 @@
         <option value="$PROJECT_DIR$/src/company/FileInput.java" />
         <option value="$PROJECT_DIR$/src/company/testinput" />
         <option value="$PROJECT_DIR$/sample_input_output/test_java.sh" />
-        <option value="$PROJECT_DIR$/src/company/HW2.java" />
-        <option value="$PROJECT_DIR$/src/company/DoubleLinkedList.java" />
         <option value="$PROJECT_DIR$/src/company/Main.java" />
+        <option value="$PROJECT_DIR$/src/company/DoubleLinkedList.java" />
+        <option value="$PROJECT_DIR$/src/company/HW2.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-7" />
-    <option name="y" value="63" />
+    <option name="x" value="2191" />
+    <option name="y" value="-19" />
     <option name="width" value="1038" />
-    <option name="height" value="690" />
+    <option name="height" value="652" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="AndroidView" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -138,6 +124,9 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -188,59 +177,37 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info anchor="right" id="Palette" order="8" />
-      <window_info anchor="bottom" id="TODO" order="12" />
-      <window_info anchor="bottom" id="Messages" order="18" weight="0.32943678" />
-      <window_info anchor="right" id="Palette&#9;" order="6" />
-      <window_info id="Image Layers" order="14" />
-      <window_info anchor="right" id="Capture Analysis" order="2" />
-      <window_info anchor="bottom" id="Event Log" order="6" side_tool="true" />
-      <window_info anchor="right" id="Maven Projects" order="5" />
-      <window_info active="true" anchor="bottom" id="Run" order="0" visible="true" weight="0.2731137" />
-      <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Floobits" order="5" />
-      <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info id="Capture Tool" order="6" />
-      <window_info id="Designer" order="3" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19635417" />
-      <window_info id="Learn" order="5" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="right" id="Ant Build" order="0" weight="0.25" />
-      <window_info id="UI Designer" order="4" />
-      <window_info anchor="right" id="Theme Preview" order="4" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.3995749" />
-      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" id="Palette" order="9" />
-      <window_info id="Designer" order="10" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="7" weight="0.25" />
-      <window_info anchor="right" id="Capture Analysis" order="10" />
-      <window_info anchor="bottom" id="Inspection" order="11" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="3" weight="0.25" />
-      <window_info anchor="bottom" id="Floobits" order="14" weight="0.32943678" />
-      <window_info id="Structure" order="8" side_tool="true" weight="0.25" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="13" />
-      <window_info id="Favorites" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="17" />
-      <window_info active="true" anchor="bottom" id="Run" order="4" visible="true" weight="0.32750398" />
-      <window_info id="Image Layers" order="15" />
-      <window_info id="Capture Tool" order="13" />
-      <window_info id="UI Designer" order="11" />
-      <window_info anchor="bottom" id="Find" order="2" />
-      <window_info anchor="right" id="Theme Preview" order="11" />
-      <window_info id="Learn" order="12" />
       <window_info anchor="right" id="Palette&#9;" order="13" />
-      <window_info anchor="bottom" id="Terminal" order="15" />
+      <window_info id="Image Layers" order="15" />
+      <window_info anchor="right" id="Capture Analysis" order="10" />
       <window_info anchor="bottom" id="Event Log" order="16" side_tool="true" />
-      <window_info anchor="bottom" id="Cvs" order="10" weight="0.25" />
-      <window_info anchor="bottom" id="Debug" order="8" weight="0.3995749" />
-      <window_info anchor="bottom" id="Message" order="1" />
-      <window_info anchor="bottom" id="Messages" order="19" weight="0.3290938" />
       <window_info anchor="right" id="Maven Projects" order="12" />
-      <window_info content_ui="combo" id="Project" order="7" visible="true" weight="0.16617863" />
+      <window_info anchor="bottom" id="Run" order="4" weight="0.32750398" />
+      <window_info anchor="bottom" id="Version Control" order="17" />
+      <window_info anchor="bottom" id="Floobits" order="14" weight="0.32943678" />
+      <window_info anchor="bottom" id="Terminal" order="15" />
+      <window_info id="Capture Tool" order="13" />
+      <window_info id="Designer" order="10" />
+      <window_info active="true" content_ui="combo" id="Project" order="7" visible="true" weight="0.16614583" />
+      <window_info id="Learn" order="12" />
+      <window_info id="Structure" order="8" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="3" weight="0.25" />
+      <window_info id="UI Designer" order="11" />
+      <window_info anchor="right" id="Theme Preview" order="11" />
+      <window_info anchor="bottom" id="Debug" order="8" weight="0.3995749" />
+      <window_info id="Favorites" order="9" side_tool="true" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="7" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="11" weight="0.4" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
+      <window_info anchor="bottom" id="Message" order="1" />
+      <window_info anchor="bottom" id="Cvs" order="10" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="2" />
+      <window_info anchor="bottom" id="Messages" order="19" weight="0.3290938" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -469,35 +436,27 @@
     <entry file="file://$USER_HOME$/Desktop/HW1.java">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/company/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="99" selection-start-line="8" selection-start-column="99" selection-end-line="8" selection-end-column="99" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/company/DoubleLinkedList.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
+        <state relative-caret-position="944">
+          <caret line="431" column="12" selection-start-line="431" selection-start-column="12" selection-end-line="431" selection-end-column="12" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3450#3451#0" expanded="true" />
-            <element signature="e#3488#3489#0" expanded="true" />
-            <element signature="e#9086#9087#0" expanded="true" />
-            <element signature="e#9120#9121#0" expanded="true" />
-            <element signature="e#9152#9153#0" expanded="true" />
-            <element signature="e#9183#9184#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/company/HW2.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="808">
-          <caret line="64" lean-forward="true" selection-end-line="64" />
-          <folding>
-            <element signature="e#0#2329#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/company/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="99" selection-start-line="8" selection-start-column="99" selection-end-line="8" selection-end-column="99" />
+        <state relative-caret-position="774">
+          <caret line="59" lean-forward="true" selection-start-line="11" selection-start-column="7" selection-end-line="59" />
         </state>
       </provider>
     </entry>

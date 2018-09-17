@@ -425,6 +425,14 @@ public class DoubleLinkedList<Interger> {
 
     public void matrixDet(DoubleLinkedList currentMatrix, int m, int n) {
 
+        if(m != n) {
+            System.out.println("Not a square matrix, cannot find determinant");
+        }
+        else {
+            
+        }
+
+
     }
 
 
